@@ -1,7 +1,7 @@
 import React,{ Component } from "react";
+import axios from "axios";
 import { connect } from "react-redux";
 import { updatePassword,updateUsername, register,login } from "../../ducks/reducer";
-import axios from "axios";
 
 // import "./Auth.css"
 
@@ -14,20 +14,20 @@ class Auth extends Component {
     }
   }
 
-  addUser = e => {
+  addUser = () => {
     const { username, password } = this.props;
  
       this.props.register(username, password);
       this.props.history.push('/dashboard');
 
-    e.preventDefault();
+    // e.preventDefault();
   }
 
   getUser = () => {
     const { username, password } = this.props;
    
-      const { login } = this.props;
       this.props.login(username, password);
+      console.log(this.props)
       this.props.history.push('/dashboard');
 
   }
@@ -37,7 +37,7 @@ class Auth extends Component {
     const { username, password } = this.props;
     return (
       <div className="auth-cont">
-      <form>
+
           <h1>Helo</h1>
        
             <label>Username:</label>
@@ -56,7 +56,7 @@ class Auth extends Component {
       
             <button type="submit" onClick={this.getUser}>Login</button>
             <button type="submit" onClick={this.addUser}>Register</button>
-            </form>
+
       </div>
     )
   }

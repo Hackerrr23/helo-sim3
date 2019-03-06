@@ -17,6 +17,6 @@ massive(process.env.CONNECTION_STRING)
   .catch(err => console.log(err));
 
 app.post('/api/signup', addUser);
-app.post('/api/signin', getUser);
+app.post("/api/signin", getUser);
 
 app.listen(port, () => console.log(`Server is listening on port ${port}`));
